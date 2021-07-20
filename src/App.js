@@ -1,24 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './index.css';
+import Searchbar from './Components/Searchbar';
 
+class App extends Component {
+  state = { 
+    searchQuery: '',
+  };
 
-function App() {
-  return (
+  onChangeQuery = query => {
+    this.setState({ searchQuery : query });
+  };
+
+  render() { 
+    return (
     <div className="App">
-      <header className="App-header">
-        
-        
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Searchbar onSubmit={this.onChangeQuery} />
     </div>
-  );
+    );
+  }
 }
-
+ 
 export default App;
+
+
