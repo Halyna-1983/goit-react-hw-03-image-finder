@@ -1,4 +1,5 @@
-// import { checkPropTypes } from "prop-types";
+import React from 'react';
+
 
 const ImageGalleryItem = ({url, alt, onClick }) => {
     return ( 
@@ -9,7 +10,5 @@ const ImageGalleryItem = ({url, alt, onClick }) => {
      );
 }
 
-// checkPropTypes
- 
 export default ImageGalleryItem;
 

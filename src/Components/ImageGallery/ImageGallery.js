@@ -1,4 +1,5 @@
-import ImageGalleryItem from '../ImageGalleryItem'
+import React from 'react'; 
+import ImageGalleryItem from '../ImageGalleryItem';
 
 const ImageGallery = ({ pictures, onClick }) => {
     return ( 
@@ -14,6 +15,5 @@ const ImageGallery = ({ pictures, onClick }) => {
         </ul>
     )
 }
-
  
 export default ImageGallery;

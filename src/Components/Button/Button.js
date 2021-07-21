@@ -3,8 +3,8 @@
 // скролиться. Для скрола используй следующий код.
 // Кнопка должна рендерится только тогда, когда есть какие-то загруженные изобаржения. 
 // Если массив изображений пуст, кнопка не рендерится.
-import React from 'react';
 
+import React from 'react';
 
 const Button = ({ children, onClick, ...allyProps }) => (
     <div className="ButtonTmp">

@@ -13,21 +13,15 @@ const modalRoot = document.querySelector('#modal-root');
 class Modal extends Component {
 
     componentDidMount() {
-    //    console.log(Modal componentDidMount()); 
-
-       window.addEventListener('keydown', this.handleKeyDown)
+        window.addEventListener('keydown', this.handleKeyDown)
     };
 
     componentWillUnmount() {
-        // console.log(Modal componentDidUpdate());
-
         window.removeEventListener('keydown', this.handleKeyDown)
    };
 
    handleKeyDown = e => {
     if(e.code === 'Escape') {
-        console.log('pressed escape');
-
         this.props.onClose();
         }
    };
