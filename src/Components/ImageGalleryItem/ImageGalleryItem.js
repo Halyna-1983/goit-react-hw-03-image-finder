@@ -1,12 +1,16 @@
 import React from 'react';
 
 
-const ImageGalleryItem = ({url, alt, onClick }) => {
+const ImageGalleryItem = ({id, url, alt, onClick }) => {
     return ( 
-        <img 
-        src={url} 
-        alt={alt} 
-        onOclick={onClick} className="ImageGalleryItem-image" />
+        
+        <li className="ImageGalleryItem" key={id}>
+            <img 
+                src={url} 
+                alt={alt} 
+                onClick={onClick} className="ImageGalleryItem-image" />
+        </li>
+        
      );
 }
 

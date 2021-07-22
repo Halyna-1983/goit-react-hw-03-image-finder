@@ -3,23 +3,24 @@ import './index.css';
 import Searchbar from './Components/Searchbar';
 import api from './services/pictures-api';
 import ImageGallery from './Components/ImageGallery';
-import Loader from './Components/Loader';
+import Button from './Components/Button';
 import Modal from './Components/Modal';
+import Loader from 'react-loader-spinner';
 
 class App extends Component {
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.searchQuery !== this.state.searchQuery) {
+      this.fetchPictures();
+    };
+  };
+
   state = { 
     searchQuery: '',
     pictures: [],
     currentPage: 1,
     showModal: false,
     largeImageURL: '',
-    isLoading: false,
-  };
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.searchQuery !== this.state.searchQuery) {
-      this.fetchPictures();
-    };
   };
 
   onChangeQuery = query => {
@@ -69,26 +70,29 @@ class App extends Component {
 
   render() { 
     const { pictures, showModal, largeImageURL, tags } = this.state;
-   
+       
     return (
     <div className="App">
 
       <Searchbar onSubmit={this.onChangeQuery} />
 
-      <ImageGallery pictures ={pictures} onPicClick={this.toggleModal} />
+      <ImageGallery pictures ={pictures} onClick={this.toggleModal} />
 
       {this.state.pictures.length !== 0 && !this.state.isLoading && (
-          <Loader onClick={this.fetchPictures} />
+          <Button onClick={this.fetchPictures} />
         )}
+
+{this.state.isLoading && (
+          <Loader type="Bars" color="#3f51b5" className="Loader" />)}
        
-        {showModal && (
+      {showModal && (
           <Modal url={largeImageURL} alt={tags} onClose={this.toggleModal}>
-            <img
+            {/* <img
               width="100%"
               height="100%"
               src={this.state.largeImageURL}
               alt={this.state.tags}
-            />
+            /> */}
           </Modal> 
       )}
     </div>
